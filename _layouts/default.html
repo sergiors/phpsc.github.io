@@ -5,6 +5,37 @@
 
   <body>
       {{ content }}
+
+      <footer>
+          <div class="footer-copy">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-sm-8">
+                          <ul class="list-inline m-0">
+                              {% if site.github_username %}
+                                  <li>
+                                      <a href="https://github.com/{{ site.github_username }}" title="Github">
+                                          <i class="fa fa-github"></i>
+                                      </a>
+                                  </li>
+                              {% endif %}
+
+                              {% if site.twitter_username %}
+                                  <li>
+                                      <a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter">
+                                          <i class="fa fa-twitter"></i>
+                                      </a>
+                                  </li>
+                              {% endif %}
+                          </ul>
+                      </div>
+                      <div class="col-sm-4">
+                          {{ site.description }}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </footer>
   </body>
 
 </html>

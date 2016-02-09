@@ -29,9 +29,9 @@ layout: default
             <hr>
             <div class="post-list">
                 {% for post in site.posts offset: 0 limit: 5  %}
+                    {% assign author = site.data.members[post.author] %}
                     <a href="{{ post.url | prepend: site.baseurl }}" class="post-item">
-                        <img src="https://avatars3.githubusercontent.com/{{ post.author }}?s=45"
-                             class="img-rounded" alt="">
+                        <img src="https://avatars3.githubusercontent.com/{{ post.author }}?s=45" class="img-rounded" alt="{{ author.name }}">
                         <span class="post-title">{{ post.title }}</span>
                     </a>
                 {% endfor %}
@@ -51,7 +51,7 @@ layout: default
         <div class="row">
             <div class="col-sm-8 col-centered">
                 <p class="lead">Somos um site colaborativo! Você pode ajudar de várias maneiras. Palestrando em um
-                    meetup, escrevendo um artigo, melhorando o site. Manifeste-se!</p>
+                    meetup, escrevendo um post, melhorando o site. Manifeste-se!</p>
                 <div class="text-center">
                     <ul class="list-inline">
                         <li><a href="#"><i class="fa fa-slack"></i> Slack</a></li>

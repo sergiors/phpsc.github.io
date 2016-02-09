@@ -3,21 +3,46 @@ layout: default
 ---
 {% assign author = site.data.members[page.author] %}
 
-<div class="post">
-  <header class="page-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">
-      {{ page.date | date: "%-d / %m / %Y" }}
-      {% if page.author %} &bull; <a href="https://github.com/{{ author.github }}">{{ author.name }}</a>{% endif %}
-      {% if page.meta %} &bull; {{ page.meta }}{% endif %}
-    </p>
-  </header>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-centered">
+            <h1>{{ page.title }}</h1>
+            <p>{{ author.name }} &dash; {{ page.date | date: "%d/%m/%Y" }}</p>
 
-  <div id="share" class="pull-right"></div>
+            <hr>
+            <div class="post-content">
+                {{ content }}
+            </div>
 
-  <article class="post-content">
-    {{ content }}
-  </article>
+            <hr>
+            <div class="post-author">
+                <img src="https://avatars3.githubusercontent.com/{{ page.author }}?s=100"
+                     class="img-rounded" alt="{{ author.name }}">
+                <div class="details">
+                    <h4 class="m-0">{{ author.name }}</h4>
+                    <ul class="list-unstyled m-0">
+                        <li>
+                            <a href="https://github.com/{{ author.github }}">
+                                <i class="fa fa-github-alt"></i> {{ page.author }}
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.details -->
+            </div><!-- /.post-author -->
 
-  <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
+        </div>
+    </div><!-- /.row -->
 </div>
+
+<!-- start disqus -->
+<script>
+    var disqus_shortname = 'phpsc';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- end disqus -->
