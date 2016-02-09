@@ -1,3 +1,5 @@
+@import "bootstrap/assets/stylesheets/bootstrap";
+
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
@@ -31,6 +33,49 @@ figcaption {
     font-size: $small-font-size;
 }
 
+/**
+ * Help us
+ */
+.help-us {
+    padding: 40px 0;
+    margin: 40px 0;
+
+    li > a {
+        font-size: 36px;
+        padding: 0 10px;
+        display: block;
+
+        &:hover {
+            color: #fff;
+            background-color: #662D91;
+            text-decoration: none;
+        }
+    }
+}
+
+/**
+ * Posts
+ */
+.post-item {
+    @include clearfix();
+    padding: 5px;
+    height: 50px;
+    display: table;
+    width: 100%;
+
+    &:hover {
+        color: #fff;
+        background-color: #662D91;
+        text-decoration: none;
+    }
+}
+
+.post-title {
+    font-size: 16px;
+    vertical-align: middle;
+    display: table-cell;
+    width: 85%;
+}
 
 
 /**

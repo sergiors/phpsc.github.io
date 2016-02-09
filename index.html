@@ -2,54 +2,113 @@
 layout: default
 ---
 
-<div class="home">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="text-center">Meetups</h1>
+            <hr>
+            <p class="lead">
+                Os meetups são agendados através do Meetup, acontece todos mês, alternando entre in company e pub. Os
+                meetups são <strong>gratuitos</strong>.
+            </p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="text-sm-center">In Company</h3>
+                    <p>Sempre acontence em uma empresa com uma grade de palestras definidas.</p>
+                </div>
+                <div class="col-sm-6">
+                    <h3 class="text-sm-center">Pub</h3>
+                    <p>É um encontro informal para conhecer pessoas novas, beber cerveja e conversar. Sem horário para
+                        terminar!</p>
+                </div>
+            </div>
+        </div><!-- /.col-sm-8 -->
 
-  <ul class="post-list">
-    {% for post in paginator.posts %}
-      {% assign author = site.data.members[post.author] %}
-      <li>
-        <h1>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h1>
-        <p class="post-meta">{{ post.date | date: "%-d / %m / %Y" }}{% if post.author %} • <a href="https://github.com/{{ author.github }}">{{ author.name }}</a>{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
+        <div class="col-sm-4">
+            <h1 class="text-center">Posts</h1>
+            <hr>
+            <div class="post-list">
+                {% for post in site.posts offset: 0 limit: 5  %}
+                    <a href="{{ post.url | prepend: site.baseurl }}" class="post-item">
+                        <img src="https://avatars3.githubusercontent.com/{{ post.author }}?s=45"
+                             class="img-rounded" alt="">
+                        <span class="post-title">{{ post.title }}</span>
+                    </a>
+                {% endfor %}
+            </div>
 
-        {{ post.content }}
-      </li>
-    {% endfor %}
-  </ul>
+            <p class="text-center">
+                <a href="" class="btn btn-link btn-block">Todos posts</a>
+            </p>
 
-  {% if paginator.total_pages > 1 %}
-  <div class="text-center">
-    <ul class="pagination">
-      <li>
-        {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a>
-        {% else %}
-        <span>&laquo;</span>
-        {% endif %}
-      </li>
-
-      {% for page in (1..paginator.total_pages) %}
-      <li>
-        {% if page == paginator.page %}
-        <a href="#" class="active">{{ page }}</a>
-        {% elsif page == 1 %}
-        <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-        {% else %}
-        <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      </li>
-      {% endfor %}
-
-      <li>
-        {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a>
-        {% else %}
-        <span>&raquo;</span>
-        {% endif %}
-      </li>
-    </ul>
-  </div>
-  {% endif %}
-
+        </div><!-- /.col-sm-4 -->
+    </div><!-- /.row -->
 </div>
+
+<div class="help-us">
+    <div class="container">
+        <h1 class="text-center">Contribua!</h1>
+        <div class="row">
+            <div class="col-sm-8 col-centered">
+                <p class="lead">Somos um site colaborativo! Você pode ajudar de várias maneiras. Palestrando em um
+                    meetup, escrevendo um artigo, melhorando o site. Manifeste-se!</p>
+                <div class="text-center">
+                    <ul class="list-inline">
+                        <li><a href="#"><i class="fa fa-slack"></i> Slack</a></li>
+                        <li><a href="#"><i class="fa fa-github"></i> Github</a></li>
+                        <li><a href="#"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<ul class="post-list">-->
+    <!--{% for post in paginator.posts %}-->
+    <!--{% assign author = site.data.members[post.author] %}-->
+    <!--<li>-->
+        <!--<h1>-->
+            <!--<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>-->
+        <!--</h1>-->
+        <!--<p class="post-meta">{{ post.date | date: "%-d / %m / %Y" }}{% if post.author %} • <a href="https://github.com/{{ author.github }}">{{ author.name }}</a>{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>-->
+
+        <!--{{ post.content }}-->
+    <!--</li>-->
+    <!--{% endfor %}-->
+<!--</ul>-->
+
+<!--{% if paginator.total_pages > 1 %}-->
+<!--<div class="text-center">-->
+    <!--<ul class="pagination">-->
+        <!--<li>-->
+            <!--{% if paginator.previous_page %}-->
+            <!--<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a>-->
+            <!--{% else %}-->
+            <!--<span>&laquo;</span>-->
+            <!--{% endif %}-->
+        <!--</li>-->
+
+        <!--{% for page in (1..paginator.total_pages) %}-->
+        <!--<li>-->
+            <!--{% if page == paginator.page %}-->
+            <!--<a href="#" class="active">{{ page }}</a>-->
+            <!--{% elsif page == 1 %}-->
+            <!--<a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>-->
+            <!--{% else %}-->
+            <!--<a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>-->
+            <!--{% endif %}-->
+        <!--</li>-->
+        <!--{% endfor %}-->
+
+        <!--<li>-->
+            <!--{% if paginator.next_page %}-->
+            <!--<a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a>-->
+            <!--{% else %}-->
+            <!--<span>&raquo;</span>-->
+            <!--{% endif %}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--{% endif %}-->

@@ -234,11 +234,11 @@
     font-size: $small-font-size;
     color: $grey-color;
 }
-
-.post-link {
-    display: block;
-    font-size: 24px;
-}
+//
+//.post-link {
+//    display: block;
+//    font-size: 24px;
+//}
 
 
 
@@ -249,15 +249,15 @@
     margin-bottom: $spacing-unit;
 }
 
-.post-title {
-    font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1;
-
-    @include media-query($on-laptop) {
-        font-size: 36px;
-    }
-}
+//.post-title {
+//    font-size: 42px;
+//    letter-spacing: -1px;
+//    line-height: 1;
+//
+//    @include media-query($on-laptop) {
+//        font-size: 36px;
+//    }
+//}
 
 .post-content {
     margin-bottom: $spacing-unit;
